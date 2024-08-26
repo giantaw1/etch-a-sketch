@@ -1,0 +1,31 @@
+:root {
+    margin: 0px;
+    padding: 0px;;
+}
+
+.container {
+    min-width: 80vw;
+    min-height: 80vh;
+    display: flex;
+    flex-flow: row wrap;
+    /* justify-content: space-around;
+    align-content: space-between; */
+    border: 1px dotted blueviolet;
+
+}
+
+.grid-item {
+    width: 200px;
+    height: 200px;
+    margin: 2px;
+    border: 2px solid black;
+
+}
+
+main {
+    margin: 0px;
+    padding: 0px;
+    border: 2px solid black;
+    min-width: 90vw;
+    min-height: 95vh;
+}
