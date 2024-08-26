@@ -14,5 +14,13 @@ function createGrid() {
     });
 }
 
-console.log(divArray);
 createGrid();
+
+const gridElement = document.querySelectorAll('.grid-item');
+
+gridElement.forEach((element) => {
+    element.addEventListener('mouseover', () => {
+        element.classList.replace('grid-item', 'grid-item-trail');
+    })
+})
+

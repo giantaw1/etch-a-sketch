@@ -3,6 +3,20 @@
     padding: 0px;;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn {
+    margin: 10px;
+    background-color: rgb(44, 43, 49);
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    padding: 10px;
+}
+
 .container {
     width: 100%;
     display: flex;
@@ -19,6 +33,13 @@
     box-sizing: border-box;
     margin-bottom: 1px;
     border: 1px solid black;
-
 }
 
+.grid-item-trail {
+    background-color: rgb(58, 60, 98);
+    width: 6.20%;
+    padding-top: 4%;
+    box-sizing: border-box;
+    margin-bottom: 1px;
+    border: 1px solid black;
+}
