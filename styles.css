@@ -9,7 +9,8 @@ main {
 }
 
 .btn {
-    margin: 10px;
+    margin: 5px;
+    margin-top: 0px;
     background-color: rgb(44, 43, 49);
     color: white;
     font-weight: bold;
@@ -23,8 +24,8 @@ main {
     flex-flow: row wrap;
     justify-content: space-between;
     border: 2px dotted blueviolet;
-    padding: 1px;
-
+    margin: 0px;
+    padding: 2px;
 }
 
 .grid-item {

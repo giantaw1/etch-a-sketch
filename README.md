@@ -1,1 +1,13 @@
 # etch-a-sketch
+
+The Odin Project Etch-A-Sketch project >>>
+
+1. Create a 16x16 grid of square divs with flexbox, the color them in on mouseover.
+
+2. Add a button that generates a new grid by prompting user for dimensions. (max 100x100)
+
+>>> extra credit
+
+3. Add functionality that randomized the bg color.
+
+4. Implement progressive darkening effect.
