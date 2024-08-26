@@ -2,7 +2,7 @@ const gridContainer = document.getElementById('grid-container');
 const divArray = [];
 
 function createGrid() {
-    for (let i = 0; i < 16; i++) {
+    for (let i = 0; i < 256; i++) {
        divArray.push(`gridDiv${i + 1}`);
         
     };
@@ -10,6 +10,7 @@ function createGrid() {
         const gridElement = document.createElement('div');
         gridElement.className = 'grid-item';
         gridContainer.appendChild(gridElement);
+        gridElement.textContent = divArray.indexOf(div) + 1;
     });
 }
 
