@@ -1,4 +1,23 @@
-// Function to generate an x by x grid of square divs
+// random color generator
+function randomColor() {
+    let color = [];
+    for (let i = 0; i < 3; i++) {
+        color.push(Math.floor(Math.random() * 256));
+    }
+    return 'rgb(' + color.join(', ') + ')';
+}
+
+function generateNewColor () {
+    const root = document.querySelector(':root');
+    // update color
+    root.style.setProperty('--trail-bg-color', randomColor());
+    // get current color
+    let cc = getComputedStyle(root);
+    let currentColor = cc.getPropertyValue('--trail-bg-color');
+    console.log(currentColor);
+}
+
+// Function to generate an x * x grid of square divs
 function generateGrid(num) {
     // Clear any existing grid items
     const gridContainer = document.getElementById('grid-container');
@@ -16,12 +35,13 @@ function generateGrid(num) {
       square.style.width = squareSize;
       square.style.height = squareSize;
       gridContainer.appendChild(square);
+      square.id = i + 1;
     }
-    // create (and erase) mouseover trail 
+    // create (and erase) mouseover trail     
     const gridElement = document.querySelectorAll('.square');
-
     gridElement.forEach((element) => {
-        element.addEventListener('mouseover', (e) => {    
+        element.addEventListener('mouseover', (e) => {
+            generateNewColor();    
             if (e.shiftKey) {
                 element.classList.replace('square-trail', 'square');
             } else {
@@ -29,6 +49,7 @@ function generateGrid(num) {
             }   
         })
     })
+     
   }
 
 // generate 16x16 on load
@@ -46,13 +67,6 @@ function xByGrid () {
     }
 }
 
-// random color generator
-function randomColor() {
-    let color = [];
-    for (let i = 0; i < 3; i++) {
-        color.push(Math.floor(Math.random() * 256));
-    }
-    return 'rgb(' + color.join(', ') + ')';
-}
+
 
 newGridBtn.addEventListener('click', xByGrid);

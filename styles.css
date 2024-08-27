@@ -1,4 +1,5 @@
 :root {
+    --trail-bg-color: rgb(58, 60, 98);
     margin: 0px;
     padding: 0px;
     display: flex;
@@ -47,6 +48,6 @@ main {
     box-sizing: border-box; 
     margin: 1px; 
     border: 1px solid black;
-    background-color: rgb(58, 60, 98);
+    background-color: var(--trail-bg-color);
  }
  
