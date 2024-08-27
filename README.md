@@ -2,6 +2,8 @@
 
 <<< The Odin Project Etch-A-Sketch project >>>
 
+HOLD SHIFT TO ERASE!!!!
+
 1. Create a 16x16 grid of square divs with flexbox, the color them in on mouseover.
 
 >>>>>>>>>>DONE
