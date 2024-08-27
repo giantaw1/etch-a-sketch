@@ -25,25 +25,36 @@ function generateGrid(num) {
       square.style.width = squareSize;
       square.style.height = squareSize;
       
-      // apply mouseover listener and generate random color on each mouseover before appending to .container  
+      // apply mouseover listener colorizing function  
       square.addEventListener('mouseover', (e) => {
-        if(e.shiftKey) {
-            square.style.backgroundColor = 'rgb(255, 255, 255)';  
-        } else if(!square.hasAttribute('color-applied')) {
+        if (e.shiftKey) {
+            square.style.backgroundColor = 'rgb(255, 255, 255)';
+            square.removeAttribute('color-applied');  
+        } else if (!square.hasAttribute('color-applied')) {
             square.style.backgroundColor = randomColor();
             square.setAttribute('color-applied', 'true');
-        }    
+        };
       });
-
+      // apply mouseover darkening function
+      let brightnessLevel = 1;
+      square.addEventListener('mouseover', (e) => {
+        if (square.hasAttribute('color-applied') && brightnessLevel > 0) {
+            brightnessLevel -= 0.1;
+            square.style.filter = `brightness(${brightnessLevel})`;
+            if (brightnessLevel <= 0) {
+                square.style.filter = `brightness(0)`;
+            }
+        } else if (e.shiftKey) {
+            square.style.filter = `brightness(1)`;
+        }
+      })
+    
       gridContainer.appendChild(square);
     } 
     // show current grid size in 'header'
     const gridSize = document.querySelector('.current-grid-size');
     gridSize.textContent = `${num} x ${num}`;
   }
-
-
-
 
 // generate 16x16 on load
   generateGrid(16);

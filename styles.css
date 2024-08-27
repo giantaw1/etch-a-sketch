@@ -1,5 +1,4 @@
 :root {
-    --trail-bg-color: rgb(58, 60, 98);
     margin: 0px;
     padding: 0px;
     display: flex;
@@ -41,7 +40,8 @@ main {
    box-sizing: border-box; 
    margin: 1px; 
    border: 1px solid black;
-   transition: background-color 0.3s ease;
+   filter: brightness(1);
+   transition: background-color 0.25s ease;
 }
 
 .info {

@@ -14,11 +14,11 @@
 
 3. Add functionality that randomizes the bg color.
 
->>>>>>>>>>DONE (-ish)
+>>>>>>>>>>DONE
 
 4. Implement progressive darkening effect.
 
-apply individal ID per square with individual styling???
+>>>>>>>>>>DONE
 
 5. extra extra
 
