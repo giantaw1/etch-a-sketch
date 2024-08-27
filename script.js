@@ -1,4 +1,4 @@
-// random color generator
+// random color generator (returns RGB CSS styling)
 function randomColor() {
     let color = [];
     for (let i = 0; i < 3; i++) {
@@ -7,19 +7,9 @@ function randomColor() {
     return 'rgb(' + color.join(', ') + ')';
 }
 
-function generateNewColor () {
-    const root = document.querySelector(':root');
-    // update color
-    root.style.setProperty('--trail-bg-color', randomColor());
-    // get current color
-    let cc = getComputedStyle(root);
-    let currentColor = cc.getPropertyValue('--trail-bg-color');
-    console.log(currentColor);
-}
-
 // Function to generate an x * x grid of square divs
 function generateGrid(num) {
-    // Clear any existing grid items
+    // Clear any existing grid items (does NOT use innerHTML)
     const gridContainer = document.getElementById('grid-container');
     while(gridContainer.firstChild) {
         gridContainer.removeChild(gridContainer.lastChild);
@@ -34,22 +24,18 @@ function generateGrid(num) {
       square.classList.add('square');
       square.style.width = squareSize;
       square.style.height = squareSize;
+
+      // apply random color and mouseover listener before appending to .container  
+      square.addEventListener('mouseover', (e) => {
+        if(e.shiftKey) {
+            square.style.backgroundColor = 'rgb(255, 255, 255)';  
+        } else {
+            square.style.backgroundColor = randomColor();
+        }    
+      });
+
       gridContainer.appendChild(square);
-      square.id = i + 1;
-    }
-    // create (and erase) mouseover trail     
-    const gridElement = document.querySelectorAll('.square');
-    gridElement.forEach((element) => {
-        element.addEventListener('mouseover', (e) => {
-            generateNewColor();    
-            if (e.shiftKey) {
-                element.classList.replace('square-trail', 'square');
-            } else {
-                element.classList.replace('square', 'square-trail');
-            }   
-        })
-    })
-     
+    } 
   }
 
 // generate 16x16 on load
@@ -66,7 +52,5 @@ function xByGrid () {
         generateGrid(num);
     }
 }
-
-
 
 newGridBtn.addEventListener('click', xByGrid);
