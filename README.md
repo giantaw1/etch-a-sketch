@@ -20,7 +20,7 @@
 
 apply individal ID per square with individual styling???
 
->>> extra extra
+5. extra extra
 
 add footer - add x * x grid info - add current color info - add opacity info
 
