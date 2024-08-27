@@ -22,6 +22,4 @@ apply individal ID per square with individual styling???
 
 5. extra extra
 
-add footer - add x * x grid info - add current color info - add opacity info
-
-add custom modal for grid input
+add footer - add custom modal for grid input

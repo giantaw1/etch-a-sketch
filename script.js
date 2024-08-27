@@ -13,30 +13,37 @@ function generateGrid(num) {
     const gridContainer = document.getElementById('grid-container');
     while(gridContainer.firstChild) {
         gridContainer.removeChild(gridContainer.lastChild);
-    } 
+    }; 
     
     // Calculate the size of each square based on the number of columns (100% / x)
     const squareSize = `calc(100% / ${num} - 2px)`; // -2px accounts for the margin
-    
+
     // Create x * x square divs and append them to the container
     for (let i = 0; i < num * num; i++) {
       const square = document.createElement('div');
       square.classList.add('square');
       square.style.width = squareSize;
       square.style.height = squareSize;
-
+      
       // apply mouseover listener and generate random color on each mouseover before appending to .container  
       square.addEventListener('mouseover', (e) => {
         if(e.shiftKey) {
             square.style.backgroundColor = 'rgb(255, 255, 255)';  
-        } else {
+        } else if(!square.hasAttribute('color-applied')) {
             square.style.backgroundColor = randomColor();
+            square.setAttribute('color-applied', 'true');
         }    
       });
 
       gridContainer.appendChild(square);
     } 
+    // show current grid size in 'header'
+    const gridSize = document.querySelector('.current-grid-size');
+    gridSize.textContent = `${num} x ${num}`;
   }
+
+
+
 
 // generate 16x16 on load
   generateGrid(16);
