@@ -25,7 +25,7 @@ function generateGrid(num) {
       square.style.width = squareSize;
       square.style.height = squareSize;
 
-      // apply random color and mouseover listener before appending to .container  
+      // apply mouseover listener and generate random color on each mouseover before appending to .container  
       square.addEventListener('mouseover', (e) => {
         if(e.shiftKey) {
             square.style.backgroundColor = 'rgb(255, 255, 255)';  
